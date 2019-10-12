@@ -5,7 +5,7 @@ current_project=$1
 
 current_branch=$(git branch | grep "\*" | cut -d ' ' -f2)
 
-frontloops_root="./cubes/frontloops"
+frontloops_root="cubes/frontloops"
 pattern_syntax="(\e[95mmrkup\e[0m|\e[95melmnt\e[0m)-L0[\e[95m1-3\e[0m]-S[\e[95m01-10\e[0m]"
 
 # shellcheck disable=SC2166
@@ -50,10 +50,14 @@ echo CURRENT_STEP_ENTRY="$current_project_root/main.js" >> ".env.development"
 echo CURRENT_STEP_INDEX="$current_project_root/index.html" >> ".env.development"
 
 echo -e "creating project in \e[34m$current_project_root\e[0m"
-#mkdir -p "$current_series/$current_loop/$current_step"
+mkdir -p "$current_project_root/scss"
 
 echo -e "creating project files "
-echo cwd
+cp "./.plop/_remedy.scss" "$current_project_root/scss"
+plop --plopfile ./.plop/plopfile.js "$current_project"
+
+echo -e "\e[33Opening files in Webstorm\e[0m"
+webstorm "$current_project_root/index.html" "$current_project_root/scss/styles.scss"
 #echo "Starting development on \033[0;32m$current_project\033[0m"
 yarn run server
 exit 0

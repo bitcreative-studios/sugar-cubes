@@ -1,3 +1,4 @@
+const path = require("path")
 require("dotenv").config({
   path: ".env.development",
 })
@@ -16,17 +17,30 @@ module.exports = function(plop) {
     actions: [
       {
         type: "add",
-        path: `${process.env.CURRENT_STEP_ENTRY}`,
+        path: `${path.resolve(
+          __dirname,
+          "..",
+          process.env.CURRENT_STEP_ENTRY
+        )}`,
         templateFile: "./main.js.hbs",
       },
       {
         type: "add",
-        path: `${process.env.CURRENT_STEP_INDEX}`,
+        path: `${path.resolve(
+          __dirname,
+          "..",
+          process.env.CURRENT_STEP_INDEX
+        )}`,
         templateFile: "./index.html.hbs",
       },
       {
         type: "add",
-        path: `${process.env.CURRENT_STEP_ROOT}/scss/styles.scss`,
+        path: `${path.resolve(
+          __dirname,
+          "..",
+          process.env.CURRENT_STEP_ROOT,
+          "scss/styles.scss"
+        )}/`,
         templateFile: "./styles.scss.hbs",
       },
     ],

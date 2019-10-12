@@ -1,3 +1,4 @@
+const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
@@ -7,10 +8,10 @@ require("dotenv").config({
 const DEV_MODE = process.env.NODE_ENV !== "production"
 
 module.exports = {
-  entry: process.env.CURRENT_STEP_ENTRY,
+  entry: path.resolve(__dirname, process.env.CURRENT_STEP_ENTRY),
 
   devServer: {
-    contentBase: process.env.CURRENT_STEP_ROOT,
+    contentBase: path.resolve(__dirname, process.env.CURRENT_STEP_ROOT),
   },
 
   module: {
@@ -34,7 +35,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: process.env.CURRENT_STEP_INDEX,
+      template: path.resolve(__dirname, process.env.CURRENT_STEP_INDEX),
     }),
     new MiniCssExtractPlugin({
       filename: DEV_MODE ? "[name].css" : "[name].[hash].css",
