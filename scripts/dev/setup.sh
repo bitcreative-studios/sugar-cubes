@@ -5,7 +5,7 @@ current_project=$1
 
 current_branch=$(git branch | grep "\*" | cut -d ' ' -f2)
 
-frontloops_root="cubes/frontloops"
+frontloops_root="./cubes/frontloops"
 pattern_syntax="(\e[95mmrkup\e[0m|\e[95melmnt\e[0m)-L0[\e[95m1-3\e[0m]-S[\e[95m01-10\e[0m]"
 
 # shellcheck disable=SC2166
