@@ -25,8 +25,11 @@ if [ "$current_project" != "$current_branch" -a -n "$(git status -s)" ]; then
 fi
 
 # create new branch if on master
-if [ "$current_branch" = "master" ]; then
+if [ "$current_branch" = "master" ] || [ -z "$(git branch | grep "$current_project")" ]; then
   git checkout -b "$current_project"
+  else
+    echo -e "\e[1mBro I don't support this feature yet...chill!!!"
+    exit 5
 fi
 
 # split current_project into [<series>,<loop>,<step>]
