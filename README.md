@@ -8,7 +8,7 @@ If you search Google Images for the term **fullstack developer** you'll
 likely come across the following image that was used in a tweet by
 [Brian Holt](https://twitter.com/holtbt/status/977419276251430912?s=20)
 
-![Fullstack Developer](/home/bitwhys/Projects/white-board/frontloops/fullstack-stigma.jpg)
+![Fullstack Developer](./fullstack-stigma.jpg)
 
 As a self identifying fullstack developer, needless to say I felt attacked  😂.  It was like that Lauryn Hill song, Killing Me Softly,
 
