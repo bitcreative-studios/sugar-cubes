@@ -27,6 +27,8 @@ fi
 # create new branch if on master
 if [ "$current_branch" = "master" ] || [ -z "$(git branch | grep "$current_project")" ]; then
   git checkout -b "$current_project"
+  echo -e "creating \e[95ma new commit on branch $current_project\e[0m"
+  git a . && git commit -m "initial commit created by script"
   else
     echo -e "\e[1mBro I don't support this feature yet...chill!!!"
     exit 5
