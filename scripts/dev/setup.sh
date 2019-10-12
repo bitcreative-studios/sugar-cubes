@@ -24,6 +24,10 @@ if [ "$current_project" != "$current_branch" -a -n "$(git status -s)" ]; then
   exit 1
 fi
 
+# create new branch if on master
+if [ "$current_branch" = "master" ]; then
+  git checkout -b "$current_project"
+
 
 # split current_project into [<series>,<loop>,<step>]
 # the color code for green
