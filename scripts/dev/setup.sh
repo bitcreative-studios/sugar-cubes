@@ -54,5 +54,5 @@ mkdir -p "$current_series/$current_loop/$current_step"
 
 echo -e "creating project files "
 #echo "Starting development on \033[0;32m$current_project\033[0m"
-yarn run dev
+yarn run server
 exit 0
