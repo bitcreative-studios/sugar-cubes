@@ -44,15 +44,16 @@ step_folder="step-$(echo "$current_step" | sed 's/[A-Z]*//g')"
 
 current_project_root=$frontloops_root/$series_folder/$loop_folder/$step_folder
 
-echo -e "exporting project environment variables in \e[34m.env.webpack\e[0m"
-echo CURRENT_STEP_ROOT="$current_project_root" > ".env.webpack"
-echo CURRENT_STEP_ENTRY="$current_project_root/main.js" >> ".env.webpack"
-echo CURRENT_STEP_INDEX="$current_project_root/index.html" >> ".env.webpack"
+echo -e "exporting project environment variables in \e[34m.env.development\e[0m"
+echo CURRENT_STEP_ROOT="$current_project_root" > ".env.development"
+echo CURRENT_STEP_ENTRY="$current_project_root/main.js" >> ".env.development"
+echo CURRENT_STEP_INDEX="$current_project_root/index.html" >> ".env.development"
 
 echo -e "creating project in \e[34m$current_project_root\e[0m"
-mkdir -p "$current_series/$current_loop/$current_step"
+#mkdir -p "$current_series/$current_loop/$current_step"
 
 echo -e "creating project files "
+echo cwd
 #echo "Starting development on \033[0;32m$current_project\033[0m"
 yarn run server
 exit 0

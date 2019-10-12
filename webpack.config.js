@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 require("dotenv").config({
-  path: ".env.webpack",
+  path: ".env.development",
 })
 const DEV_MODE = process.env.NODE_ENV !== "production"
 
