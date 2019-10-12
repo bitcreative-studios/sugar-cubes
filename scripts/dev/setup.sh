@@ -27,7 +27,7 @@ fi
 # create new branch if on master
 if [ "$current_branch" = "master" ]; then
   git checkout -b "$current_project"
-
+fi
 
 # split current_project into [<series>,<loop>,<step>]
 # the color code for green
