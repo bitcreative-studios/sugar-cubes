@@ -27,8 +27,7 @@ fi
 # create new branch if on master
 if [ "$current_branch" = "master" ] || [ -z "$(git branch | grep "$current_project")" ]; then
   git checkout -b "$current_project"
-  echo -e "creating \e[95ma new commit on branch $current_project\e[0m"
-  git add . && git commit -m "initial commit created by script"
+
   else
     echo -e "\e[1mBro I don't support this feature yet...chill!!!"
     exit 5
@@ -65,7 +64,10 @@ echo -e "creating project files "
 cp "./.plop/_remedy.scss" "$current_project_root/scss"
 plop --plopfile ./.plop/plopfile.js "$current_project"
 
-echo -e "\e[33Opening files in Webstorm\e[0m"
+echo -e "creating \e[95ma new commit on branch $current_project\e[0m"
+git add . && git commit -m "initial commit created by script"
+
+echo -e "\e[95Opening files in Webstorm\e[0m"
 webstorm "$current_project_root/index.html" "$current_project_root/scss/styles.scss"
 #echo "Starting development on \033[0;32m$current_project\033[0m"
 yarn run server
