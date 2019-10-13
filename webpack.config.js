@@ -1,6 +1,7 @@
 const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const webpack = require("webpack")
 
 require("dotenv").config({
   path: ".env.development",
@@ -41,5 +42,6 @@ module.exports = {
       filename: DEV_MODE ? "[name].css" : "[name].[hash].css",
       chunkFilename: DEV_MODE ? "[id].css" : "[id].[hash].css",
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 }

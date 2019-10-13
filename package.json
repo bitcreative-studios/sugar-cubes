@@ -6,7 +6,7 @@
   "author": "George Bockari <bitwhys@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "server": "webpack-dev-server --hot --open",
+    "server": "webpack-dev-server --open",
     "production": "webpack",
     "build": "scripty",
     "dev": "scripty"

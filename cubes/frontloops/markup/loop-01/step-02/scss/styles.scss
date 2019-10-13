@@ -1,14 +1,135 @@
 @import "remedy";
-
-html {
- font-size: 62.5%;
+:root {
+  --primary: #5489d8;
+  --black: #363636;
+  --text-color: #afb1b0;
+  --border-color: #ddd;
+  --active: #a9a9a9;
+  --hover-background: #d8d8d8;
 }
 
-html, body {
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
   height: 100%;
   width: 100%;
 }
 
 body {
+  display: flex;
+  align-items: self-end;
+  font-family: Roboto, sans-serif;
   font-size: 1.6rem;
+  background: url(../assets/img/background.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 35rem;
+  margin: 15rem auto;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 22px 12px rgba(0, 0, 0, 0.125), 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.modal__header {
+  display: flex;
+  padding: 1em 2em;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    color: var(--black);
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+  }
+
+  &__steps {
+    span {
+      display: inline-block;
+      height: 0.7rem;
+      width: 0.7rem;
+      border-radius: 50%;
+      background: var(--hover-background);
+    }
+    span:first-child {
+      background: var(--active);
+    }
+    span:not(:last-child) {
+      margin-right: 0.6rem;
+    }
+  }
+}
+
+.modal__option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  color: var(--text-color);
+  border-top: 1px solid var(--border-color);
+  transition: background-color 100ms linear;
+  cursor: pointer;
+
+  &__text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &--selected {
+    color: var(--black);
+    svg {
+      position: absolute;
+      width: 1.5em;
+      // offset equal to container padding
+      right: 1em;
+    }
+  }
+
+  &__image {
+    width: 3em;
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    background-color: var(--hover-background);
+  }
+}
+
+.modal__action {
+  // reset user-agent styles
+  outline: none;
+  border: none;
+
+  // fix the fact this element 'hides' the modals border-radius
+  border-radius: 0 0 4px 4px;
+
+  position: relative;
+  background: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 1px 0 1px var(--primary);
+
+  &__icon {
+    width: 1.4em;
+    margin-left: 1rem;
+    background-image: url(../assets/img/arrow.svg);
+  }
+
+  &:active {
+    top: 1px;
+    box-shadow: none;
+  }
 }

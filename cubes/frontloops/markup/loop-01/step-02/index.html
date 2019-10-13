@@ -1,13 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>mrkup-L01-S02</title>
-</head>
-<body>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mrkup-L01-S02</title>
+  </head>
+  <body>
+    <div class="modal">
+      <div class="modal__header">
+        <div class="modal__header__steps">
+          <span></span><span></span><span></span>
+        </div>
+        <h1 class="modal__header__title">payment method</h1>
+      </div>
+      <div class="modal__option">
+        <img
+          src="assets/img/visa.svg"
+          alt="visa logo"
+          class="modal__option__image"
+        /><span class="modal__option__text">visa</span>
+      </div>
+      <div class="modal__option modal__option--selected">
+        <img
+          src="assets/img/mastercard.svg"
+          alt="mastercard logo"
+          class="modal__option__image"
+        /><span class="modal__option__text">mastercard</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="#5AC550"
+          viewBox="0 0 24 24"
+        >
+          <defs />
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+        </svg>
+      </div>
+      <div class="modal__option">
+        <img
+          src="assets/img/maestro.svg"
+          alt="maestro logo"
+          class="modal__option__image"
+        /><span class="modal__option__text">maestro</span>
+      </div>
+      <button class="modal__action">
+        <span>next step</span>
+        <svg
+          class="modal__action__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="#fff"
+          viewBox="0 0 24 24"
+        >
+          <defs />
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+        </svg>
+      </button>
+    </div>
+  </body>
 </html>
