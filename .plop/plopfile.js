@@ -43,6 +43,16 @@ module.exports = function(plop) {
         )}/`,
         templateFile: "./styles.scss.hbs",
       },
+      {
+        type: "add",
+        path: `${path.resolve(
+          __dirname,
+          "..",
+          process.env.CURRENT_STEP_ROOT,
+          "README.md"
+        )}/`,
+        templateFile: "./README.md.hbs",
+      },
     ],
   })
 }
