@@ -1,13 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>mrkup-L01-S05</title>
-</head>
-<body>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mrkup-L01-S05</title>
+  </head>
+  <body>
+    <div class="boarding-pass">
+      <div class="boarding-pass__airports">
+        <div class="airport">
+          <span class="airport__short-name">fra</span
+          ><span class="airport__city">frankfurt</span>
+        </div>
+        <span class="divider"></span>
+        <div class="airport">
+          <span class="airport__short-name">ams</span
+          ><span class="airport__city">amsterdam</span>
+        </div>
+      </div>
+      <div class="boarding-pass__plane-info">
+        <div class="boarding-pass__plane-info__single">
+          <span>flight</span><span>815</span>
+        </div>
+        <div class="boarding-pass__plane-info__single">
+          <span>gate</span><span>23G</span>
+        </div>
+        <div class="boarding-pass__plane-info__single">
+          <span>seat</span><span>10F</span>
+        </div>
+      </div>
+      <div class="boarding-pass__details">
+        <div class="flight-details">
+          <div class="flight-details__single">
+            <span class="detail-name">passenger</span
+            ><span class="detail-value">Robert De Niro</span>
+          </div>
+          <div class="flight-details__single">
+            <span class="detail-name">class</span
+            ><span class="detail-value">Business</span>
+          </div>
+          <div class="flight-details__single">
+            <span class="detail-name">departure</span
+            ><span class="detail-value">3:45am, Dec 15</span>
+          </div>
+        </div>
+        <div class="scan-code">
+          <img src="assets/img/qr.svg" alt="boarding pass qr code" />
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

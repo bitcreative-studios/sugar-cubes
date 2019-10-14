@@ -1,14 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:900&display=swap");
 @import "remedy";
-
-html {
- font-size: 62.5%;
+:root {
+  --background: #558cb1;
+  --primary: #3088ca;
+  --secondary: #d0e5f3;
+  --text-color: #a8aaa9;
+  --black: #271f30;
 }
-
-html, body {
+html {
   height: 100%;
-  width: 100%;
+  font-size: 62.5%;
 }
 
 body {
   font-size: 1.6rem;
+  background-color: var(--background);
+  background: url(../assets/img/background-small.jpg) center center no-repeat;
+  background-size: cover;
+  font-family: Roboto, sans-serif;
+}
+.boarding-pass__plane-info__single span:first-child,
+.detail-name {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+.boarding-pass__plane-info__single span:nth-child(2),
+.detail-value {
+  color: var(--black);
+  font-size: 1.8rem;
+}
+.boarding-pass {
+  width: 40rem;
+  margin: 12rem auto;
+  background-color: #fff;
+  padding: 4rem;
+  border-radius: 4px;
+}
+.boarding-pass__airports {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  .divider {
+    width: 3rem;
+    height: 0;
+    border: solid var(--secondary);
+  }
+
+  .airport:nth-of-type(2) {
+    text-align: right;
+  }
+}
+
+.airport {
+  > span {
+    display: block;
+  }
+  &__short-name {
+    color: var(--primary);
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    font-size: 5rem;
+    font-weight: 900;
+  }
+  &__city {
+    margin-top: -14px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+}
+
+.boarding-pass__plane-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.8rem;
+  &__single > span {
+    display: block;
+  }
+
+  &__single:last-child {
+    // very hacky
+    margin-right: 8rem;
+  }
+}
+
+.boarding-pass__details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .flight-details {
+    &__single {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+    }
+  }
 }
