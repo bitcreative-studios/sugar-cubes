@@ -6,7 +6,7 @@
   --divider-color: #dcdcdc;
   --primary: #6594d4;
   --recipient-message: #f2f2f2;
-  --text-light: #e2dddc;
+  --text-light: #9b9695;
   --user-message: #e5ecf5;
 }
 html {
@@ -22,17 +22,21 @@ body {
   width: 40rem;
   margin: 10rem auto;
   background-color: #fff;
-  box-shadow: 0 2em 6em rgba(200, 200, 200, 0.15);
+  box-shadow: 0 2rem 3rem rgba(100, 100, 100, 0.11);
   &__messages {
-    padding: 0 1em;
+    padding: 0 1.3em;
     display: flex;
     flex-direction: column;
   }
 }
-
+[class*="timestamp"] {
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
 .chat-box__alert,
 .chat-box__message__text {
   padding: 1em;
+  border-radius: 3px;
 }
 .chat-box__message__text,
 .chat-box__alert,
@@ -49,23 +53,42 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: var(--primary);
-  padding: 1em;
+  padding: 1.3em;
 
   &__recipient {
-    font-weight: 500;
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #fff;
+
+    span {
+      display: inline-block;
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background-color: #fff;
+      margin-right: 1em;
+    }
   }
   &__action {
-    width: 1.2em;
+    width: 1.6em;
     fill: #fff;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 80ms linear;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
 .chat-box__message {
   display: inline-block;
   max-width: 70%;
+  margin-bottom: 1em;
 
   &--user > [class*="timestamp"],
   &--recipient > [class*="timestamp"] {
@@ -74,9 +97,23 @@ body {
   &--user {
     text-align: left;
     > [class*="text"] {
+      position: relative;
       display: inline-block;
       color: var(--black);
       background-color: var(--user-message);
+
+      &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: -5px;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-left: 10px solid var(--user-message);
+        border-bottom: 5px solid transparent;
+        transform: rotate(90deg);
+      }
     }
   }
   &--recipient {
@@ -84,11 +121,94 @@ body {
       text-align: right;
     }
     > [class*="text"] {
+      position: relative;
+      display: inline-block;
+      color: var(--black);
       background-color: var(--recipient-message);
+
+      &:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: -5px;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-left: 10px solid var(--recipient-message);
+        border-bottom: 5px solid transparent;
+        transform: rotate(90deg);
+      }
     }
   }
 }
 
 .chat-box__alert {
   background-color: var(--alert);
+}
+
+.chat-box__input {
+  display: inline-flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  input {
+    font-family: inherit;
+    border: none;
+    padding: 1rem 0;
+    outline: none;
+    font-size: 1.6rem;
+
+    &::placeholder {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+  }
+
+  button {
+    border: none;
+    outline: none;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.4rem;
+    background-color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}
+
+.chat-box__date-divider,
+.chat-box__divider {
+  margin: 2rem 0 1rem;
+}
+.chat-box__date-divider {
+  position: relative;
+  color: #959595;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+
+  &:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    width: calc(50% - 3em);
+    transform: translateY(-50%);
+    border: 0.5px solid var(--divider-color);
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 50%;
+    width: calc(50% - 3em);
+    transform: translateY(-50%);
+    border: 0.5px solid var(--divider-color);
+  }
+}
+
+.chat-box__divider {
+  width: 100%;
+  border-top: 2px solid var(--divider-color);
 }
