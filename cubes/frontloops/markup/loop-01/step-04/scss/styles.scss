@@ -1,14 +1,94 @@
 @import "remedy";
-
+:root {
+  --alert: #ffc1c1;
+  --background: #b0c7d9;
+  --black: #271f30;
+  --divider-color: #dcdcdc;
+  --primary: #6594d4;
+  --recipient-message: #f2f2f2;
+  --text-light: #e2dddc;
+  --user-message: #e5ecf5;
+}
 html {
- font-size: 62.5%;
+  font-size: 62.5%;
 }
-
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
+  background-color: var(--background);
+  font-family: Roboto, sans-serif;
   font-size: 1.6rem;
+}
+
+.chat-box {
+  width: 40rem;
+  margin: 10rem auto;
+  background-color: #fff;
+  box-shadow: 0 2em 6em rgba(200, 200, 200, 0.15);
+  &__messages {
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.chat-box__alert,
+.chat-box__message__text {
+  padding: 1em;
+}
+.chat-box__message__text,
+.chat-box__alert,
+[class*="timestamp"] {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.chat-box__alert,
+.chat-box__message--recipient {
+  align-self: flex-end;
+}
+
+.chat-box__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary);
+  padding: 1em;
+
+  &__recipient {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+  &__action {
+    width: 1.2em;
+    fill: #fff;
+  }
+}
+
+.chat-box__message {
+  display: inline-block;
+  max-width: 70%;
+
+  &--user > [class*="timestamp"],
+  &--recipient > [class*="timestamp"] {
+    display: block;
+  }
+  &--user {
+    text-align: left;
+    > [class*="text"] {
+      display: inline-block;
+      color: var(--black);
+      background-color: var(--user-message);
+    }
+  }
+  &--recipient {
+    > [class*="timestamp"] {
+      text-align: right;
+    }
+    > [class*="text"] {
+      background-color: var(--recipient-message);
+    }
+  }
+}
+
+.chat-box__alert {
+  background-color: var(--alert);
 }

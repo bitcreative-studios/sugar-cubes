@@ -1,13 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>mrkup-L01-S04</title>
-</head>
-<body>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mrkup-L01-S04</title>
+  </head>
+  <body>
+    <div class="chat-box">
+      <div class="chat-box__header">
+        <span class="chat-box__header__recipient">mark zuckerberg</span>
+        <svg
+          class="chat-box__header__action"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </div>
+      <div class="chat-box__messages">
+        <span class="chat-box__date-divider">today</span>
+        <div class="chat-box__message chat-box__message--user">
+          <span class="chat-box__message__timestamp">10:53</span>
+          <div class="chat-box__message__text">
+            Hi, Mark! I made a new design for Messenger App.
+          </div>
+        </div>
+        <div class="chat-box__message chat-box__message--recipient">
+          <span class="chat-box__message__timestamp">10:57</span>
+          <div class="chat-box__message__text">
+            Yo! Send it to my assistant and we'll review it during the year.
+          </div>
+        </div>
+        <div class="chat-box__message chat-box__message--user">
+          <span class="chat-box__message__timestamp">11:03</span>
+          <div class="chat-box__message__text">But Mark...</div>
+        </div>
+        <div class="chat-box__alert">You were blocked by the user.</div>
+        <span class="chat-box__divider"></span>
+        <div class="chat-box__input">
+          <input type="text" />
+          <button class="chat__input__send">send</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
