@@ -1,14 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 @import "remedy";
 
-html {
- font-size: 62.5%;
+:root {
+  --background: #4e525d;
+  --text-color: #787879;
+  --border-color: #b8bec6;
+  --padding-large: 6rem;
+  --padding-medium: 4rem;
+  --padding-xlarge: 9rem;
+  --padding-horizontal: 6rem;
+  --padding-small: 2rem;
 }
-
-html, body {
-  height: 100%;
-  width: 100%;
+html {
+  font-size: 62.5%;
 }
 
 body {
+  background-color: var(--background);
+  font-family: Roboto, sans-serif;
   font-size: 1.6rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 62% 38%;
+  width: 105rem;
+  height: 63rem;
+  margin: 10rem auto;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12), 0 5px 11px rgba(0, 0, 0, 0.3);
+
+  .media {
+    height: 100%;
+    width: 100%;
+    background: url(../assets/img/side.jpg) center center no-repeat;
+    background-size: cover;
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+.register-container {
+  height: 100%;
+  background: #fff;
+  border-radius: 4px 0 0 4px;
+}
+
+.register-form {
+  padding: 0 var(--padding-horizontal);
+  margin-bottom: var(--padding-xlarge);
+  .header {
+    margin: var(--padding-large) 0;
+    &__heading {
+      margin-bottom: 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: 4rem;
+      font-weight: normal;
+    }
+    &__message {
+      color: #9f9f9f;
+    }
+  }
+
+  &__social-option {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.055);
+    border-radius: 3px;
+    margin-bottom: var(--padding-small);
+
+    .text,
+    .social-icon {
+      grid-row: 1/2;
+      grid-column: 1/2;
+    }
+    .text {
+      justify-self: center;
+    }
+  }
+}
+
+.register__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding-medium) var(--padding-horizontal);
+  .message {
+    font-size: 1.3rem;
+  }
+}
+
+.social-icon {
+  width: 2.4rem;
+
+  &--facebook {
+    fill: #415993;
+  }
+  &--google {
+    fill: #c3523f;
+  }
+  &--twitter {
+    fill: #5899f8;
+  }
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.055);
+}
+
+.text {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
