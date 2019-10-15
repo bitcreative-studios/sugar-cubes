@@ -1,14 +1,126 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap");
 @import "remedy";
+:root {
+  --background-main: #f5cd9a;
+  --accent: #e97b66;
+  --message-count: #b3c0cb;
+  --background-secondary: #494a56;
+  --padding-normal: 4rem;
+  --padding-small: 3rem;
+}
 
 html {
- font-size: 62.5%;
+  font-size: 62.5%;
 }
-
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
+  background-color: var(--background-main);
+  font-family: "Heebo", sans-serif;
   font-size: 1.6rem;
+}
+
+.article {
+  width: 100rem;
+  height: 55.6rem;
+  margin: 10rem auto;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.article__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--background-secondary);
+
+  .title {
+    color: #fff;
+    padding: var(--padding-small) var(--padding-normal);
+    h1 {
+      margin-bottom: 0;
+      font-size: 3rem;
+    }
+    span {
+      position: relative;
+      display: block;
+      margin-top: -1rem;
+      font-weight: normal;
+      &:after {
+        position: absolute;
+        content: "";
+        bottom: -1rem;
+        left: 0;
+        width: 6rem;
+        border: 2px solid var(--accent);
+      }
+    }
+  }
+  .author {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--padding-normal) var(--padding-normal);
+    &__avatar {
+      height: 6rem;
+      width: 6rem;
+      border-radius: 50%;
+      background: url(../assets/img/avatar.jpg) center center no-repeat;
+      background-size: cover;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.25);
+    }
+    &__name {
+      color: #fff;
+      margin-left: 1em;
+      font-size: 1.8rem;
+      font-weight: 400;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.article__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+
+  .text {
+    padding: var(--padding-small) var(--padding-normal);
+    font-size: 1.8rem;
+    font-weight: lighter;
+    line-height: 1.8;
+
+    &__paragraph:first-child::first-letter {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  }
+}
+
+.article__content .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding-small) var(--padding-normal);
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.125);
+
+  &__published {
+    .date {
+      font-weight: lighter;
+    }
+    .timestamp {
+      font-weight: bold;
+    }
+  }
+}
+
+.details__extra {
+  display: flex;
+
+  &__comments {
+    display: flex;
+    color: lightgray;
+    margin-right: 1rem;
+    .comments-count {
+      margin-left: 5px;
+    }
+  }
 }
