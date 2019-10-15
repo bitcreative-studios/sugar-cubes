@@ -61,14 +61,21 @@ body {
   }
 
   &__social-option {
+    cursor: pointer;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
     align-items: center;
     padding: 1em;
-    border: 1px solid rgba(0, 0, 0, 0.055);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.055);
     border-radius: 3px;
     margin-bottom: var(--padding-small);
+    transition: all 200ms linear;
+
+    &:hover {
+      box-shadow: 0 12px 10px rgba(0, 0, 0, 0.125);
+      border: none;
+    }
 
     .text,
     .social-icon {
@@ -87,6 +94,16 @@ body {
   padding: var(--padding-medium) var(--padding-horizontal);
   .message {
     font-size: 1.3rem;
+  }
+
+  .action {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 100ms linear;
+    //  TODO: hover effect
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
