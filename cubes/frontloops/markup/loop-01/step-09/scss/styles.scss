@@ -4,13 +4,14 @@
   --background-sidebar: #f2f2f2;
   --background-main: #fff;
   --text-light: #c0c0c0;
+  --text-medium: #727374;
   --text-dark: #333333;
   --balance-withdrawl: #8797c6;
   --balance-deposit: #9cd576;
   --divider-color: #e2e2e2;
-  --padding-small: 2.8rem;
-  --padding-medium: 3.8rem;
-  --padding-large: 4.8rem;
+  --spacing-small: 2.8rem;
+  --spacing-medium: 3.8rem;
+  --spacing-large: 4.8rem;
   --container-width: 80rem;
   --container-height: 45rem;
 }
@@ -20,7 +21,21 @@ html {
 }
 body {
   background-color: var(--background);
+  font-family: Roboto, sans-serif;
   font-size: 1.6rem;
+}
+::-webkit-scrollbar {
+  width: 2rem;
+}
+::-webkit-scrollbar-thumb {
+  color: green;
+}
+
+::-webkit-scrollbar-corner {
+  width: 0;
+}
+::-webkit-scrollbar-button {
+  display: none;
 }
 
 .user-account-widget {
@@ -28,4 +43,152 @@ body {
   height: var(--container-height);
   display: grid;
   grid-template-columns: 3fr 5fr;
+  margin: 10rem auto;
+
+  &__sidebar {
+    padding: var(--spacing-large) var(--spacing-medium);
+    background-color: var(--background-sidebar);
+    overflow: scroll;
+    //overflow: hidden;
+  }
+  &__main {
+    padding: var(--spacing-large) var(--spacing-medium);
+    background-color: var(--background-main);
+    border-radius: 0 4px 4px 0;
+    overflow: scroll;
+
+    &:hover {
+    }
+  }
+}
+
+/**
+  Spacing & Display
+ */
+[class*="header"],
+.account-activity,
+.account-activity__details,
+.credit-card {
+  display: flex;
+}
+[class*="header"],
+.account-activity__details {
+  justify-content: space-between;
+}
+
+header {
+  padding-bottom: var(--spacing-medium);
+}
+
+/**
+  Typography
+ */
+
+[class*="heading"] {
+  font-size: 2rem;
+  //font-weight: 500;
+  text-transform: capitalize;
+  color: var(--text-dark);
+}
+
+[class*="total"] {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.reason {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: var(--text-dark);
+}
+
+.extra-info {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.credit-card__number,
+.credit-card__expires {
+  color: var(--text-medium);
+  font-size: 1.5rem;
+}
+
+.credit-card__number {
+  font-weight: 500;
+}
+
+.account-activity__details__amount {
+  font-weight: bold;
+  font-size: 1.8rem;
+
+  &--withdrawal {
+    color: var(--balance-withdrawl);
+  }
+  &--deposit {
+    color: var(--balance-deposit);
+  }
+}
+
+/**
+  credit-card
+ */
+
+.credit-card {
+  cursor: pointer;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: var(--spacing-small);
+  border: 1px solid var(--text-light);
+  border-radius: 4px;
+  transition: all 100ms ease;
+
+  &--selected {
+    border: 2px solid var(--balance-withdrawl);
+  }
+
+  &:hover {
+    border: 2px solid var(--balance-withdrawl);
+  }
+
+  &__brand {
+    width: 30%;
+    margin-bottom: 1em;
+  }
+}
+
+.user-account-balance__header {
+  border-bottom: 1px solid var(--text-light);
+}
+
+.user-account-balance__activities {
+  margin-top: var(--spacing-large);
+}
+
+.account-activity {
+  margin-bottom: var(--spacing-large);
+  align-items: center;
+  &__type {
+    display: grid;
+    place-items: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--text-light);
+    margin-right: var(--spacing-small);
+    svg {
+      width: 1em;
+    }
+  }
+
+  &__details {
+    flex: 1 0 auto;
+    align-items: center;
+    &__reason {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
