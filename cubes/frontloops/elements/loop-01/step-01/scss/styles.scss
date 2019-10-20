@@ -11,7 +11,7 @@ html {
 body {
   background-color: var(--background);
   font-family: Roboto, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .container {
@@ -22,4 +22,69 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.segmented-control {
+  &__select {
+    display: none;
+    width: 100%;
+    height: 36px;
+    background: transparent;
+    border: 2px solid var(--primary);
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(88, 150, 225, 0.4);
+      z-index: 2;
+    }
+  }
+}
+
+.segmented-control__button {
+  position: relative;
+  padding: 1rem;
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-left: 0;
+  cursor: pointer;
+  transition: all 100ms linear;
+
+  &--active,
+  &--active:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(88, 150, 225, 0.4);
+    z-index: 2;
+  }
+  &:first-child {
+    border-left: 2px solid var(--primary);
+    border-radius: 4px 0 0 4px;
+  }
+
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+
+  &:hover {
+    background: rgba(88, 150, 225, 0.2);
+  }
+}
+
+/* The desired effect is achieved by
+ * hiding the 'button widget at small screens
+ * and displaying the select component at this viewport width
+ * the select is hidden by default
+ */
+
+@media screen and (max-width: 50rem) {
+  .segmented-control__row {
+    display: none;
+  }
+  .segmented-control__select {
+    display: block;
+  }
 }
