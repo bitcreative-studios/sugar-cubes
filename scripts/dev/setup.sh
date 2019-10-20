@@ -61,7 +61,7 @@ echo -e "creating project in \e[34m$current_project_root\e[0m"
 mkdir -p "$current_project_root/scss"
 
 echo -e "creating project files "
-cp "./.plop/_remedy.scss" "$current_project_root/scss"
+cp "./.plop/_normalize.scss" "$current_project_root/scss"
 plop --plopfile ./.plop/plopfile.js "$current_project"
 
 echo -e "creating \e[95ma new commit on branch $current_project\e[0m"
