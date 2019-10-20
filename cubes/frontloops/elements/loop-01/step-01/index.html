@@ -1,13 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>elmnt-L01-S01</title>
-</head>
-<body>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>elmnt-L01-S01</title>
+  </head>
+  <body>
+    <!--  simply for centering the `component`-->
+    <div class="container">
+      <div class="segmented-control">
+        <div class="segmented-control__row js-segmented-control">
+          <button
+            data-value="1"
+            class="segmented-control__button segmented-control__button--active js-segmented-control__button"
+          >
+            Sort by price
+          </button>
+          <button
+            data-value="2"
+            class="segmented-control__button js-segmented-control__button"
+          >
+            Sort by name
+          </button>
+          <button
+            data-value="3"
+            class="segmented-control__button js-segmented-control__button"
+          >
+            Sort by relevance
+          </button>
+        </div>
+        <select
+          name=""
+          id=""
+          class="segmented-control__select js-segmented-control__select"
+        >
+          <option value="1">Sort by price</option>
+          <option value="2">Sort by name</option>
+          <option value="3">Sort by relevance</option>
+        </select>
+      </div>
+    </div>
+  </body>
 </html>

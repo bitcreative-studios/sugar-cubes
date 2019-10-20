@@ -1,14 +1,15 @@
 @import "remedy";
-
-html {
- font-size: 62.5%;
+:root {
+  --background: #82b9f9;
+  --primary: #6497f8;
+  --border-color: #dedede;
 }
-
-html, body {
-  height: 100%;
-  width: 100%;
+html {
+  font-size: 62.5%;
 }
 
 body {
+  background-color: var(--background);
+  font-family: Roboto, sans-serif;
   font-size: 1.6rem;
 }
