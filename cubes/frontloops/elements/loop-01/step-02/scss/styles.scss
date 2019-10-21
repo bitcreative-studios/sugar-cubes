@@ -7,6 +7,7 @@
   --text-inactive: #dedede;
   --border-color: #dedede;
   --black: #1e1a1d;
+  --error: #ff0844;
   --spacing-sm: 1.5rem;
   --spacing-md: 2.5rem;
   --spacing-lg: 4rem;
@@ -51,6 +52,12 @@ body {
       border-bottom: 2px solid var(--border-color);
       transition: border-bottom-color 100ms ease-in;
 
+      &::placeholder {
+        color: var(--placeholder-text-color);
+        font-weight: 500;
+        font-size: 1.2em;
+      }
+
       &,
       &:focus,
       &:active {
@@ -59,6 +66,10 @@ body {
       &:focus,
       &:active {
         border-bottom: 2px solid var(--black);
+      }
+
+      &:invalid {
+        border-bottom: 2px solid var(--error);
       }
     }
   }

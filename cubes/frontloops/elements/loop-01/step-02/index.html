@@ -13,13 +13,11 @@
     <div class="container">
       <div class="widget">
         <!--        wrap all control elements in a form... to simulate 'real-world' usage-->
-        <form>
+        <form class="widget__form" data-index="">
           <!--        We set explicit (min,max) on the input:number so we can use HTML5 validation-->
           <div class="form__input__group">
             <input
               type="number"
-              min="1"
-              max="3"
               name="index"
               id="index"
               class="form__input__number"
@@ -28,11 +26,19 @@
             <button class="btn btn--flat">Change tab</button>
           </div>
           <div class="form__input__group btn__group btn--ghost">
-            <button class="btn btn--ghost btn--ghost--active" data-value="1">
+            <button
+              class="btn btn--ghost btn--ghost--active"
+              data-value="1"
+              data-role="tab"
+            >
               positive
             </button>
-            <button class="btn btn--ghost" data-value="2">negative</button>
-            <button class="btn btn--ghost" data-value="3">neutral</button>
+            <button class="btn btn--ghost" data-value="2" data-role="tab">
+              negative
+            </button>
+            <button class="btn btn--ghost" data-value="3" data-role="tab">
+              neutral
+            </button>
           </div>
         </form>
         <div class="widget__content">Positive content</div>
