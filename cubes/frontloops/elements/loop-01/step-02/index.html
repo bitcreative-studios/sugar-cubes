@@ -1,13 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>elmnt-L01-S02</title>
-</head>
-<body>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>elmnt-L01-S02</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="widget">
+        <!--        wrap all control elements in a form... to simulate 'real-world' usage-->
+        <form>
+          <!--        We set explicit (min,max) on the input:number so we can use HTML5 validation-->
+          <div class="form__input__group">
+            <input
+              type="number"
+              min="1"
+              max="3"
+              name="index"
+              id="index"
+              class="form__input__number"
+              placeholder="Enter tab index"
+            />
+            <button class="btn btn--flat">Change tab</button>
+          </div>
+          <div class="form__input__group btn__group btn--ghost">
+            <button class="btn btn--ghost btn--ghost--active" data-value="1">
+              positive
+            </button>
+            <button class="btn btn--ghost" data-value="2">negative</button>
+            <button class="btn btn--ghost" data-value="3">neutral</button>
+          </div>
+        </form>
+        <div class="widget__content">Positive content</div>
+      </div>
+    </div>
+  </body>
 </html>
