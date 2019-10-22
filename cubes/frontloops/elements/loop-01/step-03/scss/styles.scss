@@ -1,14 +1,72 @@
 @import "normalize";
+:root {
+  --background: #4b729a;
+  --on-state: #64c87a;
+  --off-state: #f1f1f1;
+  --border-color: #dedede;
+  --switch-width: 6rem;
+  --switch-height: 3.2rem;
+  --knob-size: 3.2rem;
+  --container-width: 24.2rem;
+  --spacing: 2rem;
+  --travel-distance: var(--switch-width) - var(--knob-size);
+}
+$width: 60px;
 
 html {
- font-size: 62.5%;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
+  font-size: 62.5%;
 }
 
 body {
+  background: var(--background);
   font-size: 1.6rem;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  align-items: center;
+  width: var(--container-width);
+  margin: 10rem auto;
+  background: #fff;
+  border: 2px solid var(--border-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.switches {
+  margin-top: var(--spacing);
+  &__switch {
+    margin-bottom: var(--spacing);
+
+    &__checkbox {
+      display: none;
+    }
+    &__checkbox:checked + &__label {
+      background: var(--on-state);
+    }
+    &__checkbox:checked + &__label > .knob {
+      transform: translateX(calc(var(--travel-distance)));
+    }
+    &__label {
+      display: block;
+      position: relative;
+      width: var(--switch-width);
+      height: var(--switch-height);
+      border-radius: calc(6rem / 2);
+      background: var(--off-state);
+      transition: all 300ms linear;
+      .knob {
+        display: block;
+        position: relative;
+        height: var(--knob-size);
+        width: var(--knob-size);
+        background: #fff;
+        border: 2px solid var(--border-color);
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+        transition: transform 300ms ease-out;
+      }
+    }
+  }
 }
