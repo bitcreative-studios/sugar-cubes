@@ -11,6 +11,9 @@
     "build": "scripty",
     "dev": "scripty"
   },
+  "scripty": {
+    "silent": true
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
