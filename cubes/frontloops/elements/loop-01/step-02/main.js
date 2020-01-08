@@ -13,54 +13,11 @@ const attributes = {
   index: "data-index",
 }
 const VALID_INDEX_RANGE = [1, 2, 3]
-
 const form = document.querySelector(".widget__form")
 const controls = [].slice.call(form.querySelectorAll(".btn"), 0)
-const tabs = controls.filter(button => button.dataset["role"] === "tab")
+const tabs = controls.filter(button => button.dataset.role === "tab")
 const input = document.querySelector("[name='index']")
 const content = document.querySelector(".widget__content")
-
-const handleFormSubmit = event => {
-  event.preventDefault()
-  console.log(
-    "%c --- DEBUG INFO: [handleFormSubmit] ---",
-    "font-weight: bold; color: purple"
-  )
-  // console.log(event.target)
-  let currentIndex
-
-  /**
-   * There are (3) ways for the `submit` event to fire
-   *  - triggered by `tab` button, ignore input value (if any)
-   *  - triggered by `change tab` button, read+validate input
-   *  - triggered by pressing enter in input field
-   */
-
-  currentIndex = form.getAttribute(attributes.index) || input.value
-  if (!VALID_INDEX_RANGE.includes(Number(currentIndex))) {
-    alert("Index is invalid")
-    input.value = ""
-    return
-  }
-  setActive(currentIndex)
-  content.innerText = data[currentIndex - 1]
-  form.dataset["index"] = ""
-  input.value = ""
-}
-
-tabs.forEach(tab =>
-  tab.addEventListener("click", event => {
-    event.preventDefault()
-    console.log(
-      `%c --- DEBUG INFO: [${event.target.innerText} clickHandler] ---`,
-      "font-weight: bold; color: purple"
-    )
-
-    // set the data-index attribute of the form
-    form.dataset["index"] = event.target.getAttribute(attributes.value)
-    triggerSubmit()
-  })
-)
 
 function setActive(index) {
   console.log(
@@ -82,16 +39,58 @@ function setActive(index) {
  * our other logic within those clickHandlers
  */
 function triggerSubmit() {
-  let event = new Event("submit", {
+  const event = new Event("submit", {
     view: window,
     bubbles: true,
     cancelable: true,
   })
-  let cancelled = !form.dispatchEvent(event)
+  const cancelled = !form.dispatchEvent(event)
   if (cancelled) {
     // alert("cancelled")
   } else {
     // alert("not cancelled")
   }
 }
+
+const handleFormSubmit = event => {
+  event.preventDefault()
+  console.log(
+    "%c --- DEBUG INFO: [handleFormSubmit] ---",
+    "font-weight: bold; color: purple"
+  )
+  // console.log(event.target)
+
+  /**
+   * There are (3) ways for the `submit` event to fire
+   *  - triggered by `tab` button, ignore input value (if any)
+   *  - triggered by `change tab` button, read+validate input
+   *  - triggered by pressing enter in input field
+   */
+
+  const currentIndex = form.getAttribute(attributes.index) || input.value
+  if (!VALID_INDEX_RANGE.includes(Number(currentIndex))) {
+    alert("Index is invalid")
+    input.value = ""
+    return
+  }
+  setActive(currentIndex)
+  content.innerText = data[currentIndex - 1]
+  form.dataset.index = ""
+  input.value = ""
+}
+
+tabs.forEach(tab =>
+  tab.addEventListener("click", event => {
+    event.preventDefault()
+    console.log(
+      `%c --- DEBUG INFO: [${event.target.innerText} clickHandler] ---`,
+      "font-weight: bold; color: purple"
+    )
+
+    // set the data-index attribute of the form
+    form.dataset.index = event.target.getAttribute(attributes.value)
+    triggerSubmit()
+  })
+)
+
 form.addEventListener("submit", handleFormSubmit)
