@@ -1,6 +1,7 @@
 # Markup Loop 01 - Step 05
 
 ## Design
+
 ![](./design-mockup.png)
 
 ## Implementation Challenges
