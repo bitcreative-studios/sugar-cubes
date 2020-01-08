@@ -1,12 +1,14 @@
 # Markup Loop 01 - Step 06
 
 ## Design
+
 ![](./design-mockup.png)
 
 ## Implementation Challenges
 
 - proper spacing
 - element grouping
+
 ## What Did I Learn?
 
 ### All That Glitters Ain't A Border

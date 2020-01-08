@@ -3,9 +3,11 @@
 ## Design
 
 ### Desktop
+
 ![](./design-mockup-desktop.png)
 
 ### Mobile
+
 ![](./design-mockup-mobile.png)
 
 ## Implementation Challenges
