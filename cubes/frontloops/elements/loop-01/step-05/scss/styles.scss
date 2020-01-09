@@ -1,4 +1,5 @@
 @import "normalize";
+@import url("https://use.typekit.net/gtc1mvz.css");
 :root {
   --black: #1a1e1d;
   --primary: #ff0844;
@@ -14,13 +15,15 @@ body {
 }
 
 body {
-  text-align: center;
+  font-family: "alverata", cursive;
   font-size: 1.6rem;
   background: var(--black);
   color: var(--primary);
 }
 
 .heading {
+  position: fixed;
   margin-top: 9rem;
+  margin-left: 23rem;
   font-size: 6.3em;
 }
