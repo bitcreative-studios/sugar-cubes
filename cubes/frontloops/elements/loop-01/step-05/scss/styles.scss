@@ -1,14 +1,26 @@
 @import "normalize";
-
-html {
- font-size: 62.5%;
+:root {
+  --black: #1a1e1d;
+  --primary: #ff0844;
 }
 
-html, body {
-  height: 100%;
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
   width: 100%;
 }
 
 body {
+  text-align: center;
   font-size: 1.6rem;
+  background: var(--black);
+  color: var(--primary);
+}
+
+.heading {
+  margin-top: 9rem;
+  font-size: 6.3em;
 }
