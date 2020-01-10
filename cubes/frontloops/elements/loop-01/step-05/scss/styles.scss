@@ -18,7 +18,7 @@ body {
   font-family: "alverata", cursive;
   font-size: 1.6rem;
   background: var(--black);
-  color: var(--primary);
+  color: white;
 }
 
 .heading {
@@ -29,17 +29,31 @@ body {
 }
 
 .text-prompt {
-  .txt {
-    border-right: 0.3rem solid var(--primary);
-    animation: blinkTextCursor 800ms steps(40) infinite normal;
-  }
+  color: var(--primary);
 }
 
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: var(--primary);
+.cursor {
+  display: inline-block;
+  width: 4px;
+  background-color: var(--primary);
+  margin-left: 0.2rem;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    background-color: var(--primary);
   }
-  to {
-    border-right-color: transparent;
+  49% {
+    background-color: var(--primary);
+  }
+  50% {
+    background-color: transparent;
+  }
+  99% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--primary);
   }
 }
