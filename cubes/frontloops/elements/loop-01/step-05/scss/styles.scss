@@ -27,3 +27,19 @@ body {
   margin-left: 23rem;
   font-size: 6.3em;
 }
+
+.text-prompt {
+  .txt {
+    border-right: 0.3rem solid var(--primary);
+    animation: blinkTextCursor 800ms steps(40) infinite normal;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: var(--primary);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
