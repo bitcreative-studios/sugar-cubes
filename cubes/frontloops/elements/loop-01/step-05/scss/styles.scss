@@ -38,6 +38,10 @@ body {
   background-color: var(--primary);
   margin-left: 0.2rem;
   animation: blink 1s infinite;
+
+  &.typing {
+    animation: none;
+  }
 }
 
 @keyframes blink {
