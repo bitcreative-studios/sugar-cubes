@@ -2,10 +2,10 @@ const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const webpack = require("webpack")
-
 require("dotenv").config({
   path: ".env.development",
 })
+
 const DEV_MODE = process.env.NODE_ENV !== "production"
 
 module.exports = {
@@ -13,6 +13,7 @@ module.exports = {
 
   devServer: {
     contentBase: path.resolve(__dirname, process.env.CURRENT_STEP_ROOT),
+    overlay: true,
   },
 
   module: {

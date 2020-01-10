@@ -1,0 +1,63 @@
+@import "normalize";
+@import url("https://use.typekit.net/gtc1mvz.css");
+:root {
+  --black: #1a1e1d;
+  --primary: #ff0844;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  font-family: "alverata", cursive;
+  font-size: 1.6rem;
+  background: var(--black);
+  color: white;
+}
+
+.heading {
+  position: fixed;
+  margin-top: 9rem;
+  margin-left: 23rem;
+  font-size: 6.3em;
+}
+
+.text-prompt {
+  color: var(--primary);
+}
+
+.cursor {
+  display: inline-block;
+  width: 4px;
+  background-color: var(--primary);
+  margin-left: 0.2rem;
+  animation: blink 1s infinite;
+
+  &.typing {
+    animation: none;
+  }
+}
+
+@keyframes blink {
+  0% {
+    background-color: var(--primary);
+  }
+  49% {
+    background-color: var(--primary);
+  }
+  50% {
+    background-color: transparent;
+  }
+  99% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--primary);
+  }
+}
