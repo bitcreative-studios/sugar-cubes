@@ -1,0 +1,28 @@
+@import "normalize";
+@import url("https://use.typekit.net/gtc1mvz.css");
+
+$section-color: #efeef0;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  display: grid;
+  place-content: center;
+  margin-top: 20rem;
+}
+
+.content__area {
+  height: 50vh;
+  width: 60vw;
+  background: $section-color;
+  margin-bottom: 4rem;
+  opacity: 1;
+  transition: opacity 1.5s ease-out;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
