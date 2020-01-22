@@ -3,7 +3,7 @@
   --black: #1a1e1d;
   --gray-lt: #f1f1f1;
   --gray-md: #dedede;
-  --gray: #757575;
+  --gray: #999999;
   --active-state: #ff0844;
   --incomplete-state: var(--gray-lt);
   --disabled-text: var(--gray);
@@ -53,6 +53,9 @@ body {
   &:hover {
     background-color: var(--gray-md);
   }
+  & + & {
+    margin-left: 0.5rem;
+  }
 }
 
 .steps__widget {
@@ -62,15 +65,19 @@ body {
   border-radius: var(--corners-sm);
   padding: calc(var(--spacing-md) + 1%) var(--spacing-md);
 }
+label {
+  cursor: pointer;
+}
 
 // steps
 .steps {
-  // individual step
   margin-right: var(--spacing-lg);
+  input[type="checkbox"] {
+    display: none;
+  }
   &__step {
     display: flex;
     align-items: center;
-    cursor: pointer;
     &:not(:last-child) {
       margin-bottom: var(--spacing-sm);
     }
@@ -92,20 +99,27 @@ body {
       color: var(--disabled-text);
       transition: color 100ms ease-in-out;
     }
-    &.active {
-      span {
+    &.active,
+    &.completed {
+      .steps__step__indicator {
         background: var(--active-state);
         color: #fff;
       }
       .text {
         color: var(--black);
       }
+      &:hover {
+        .steps__step__indicator {
+          background: var(--active-state);
+          color: #fff;
+        }
+      }
     }
     &:hover {
       .text {
         color: var(--black);
       }
-      &:not(.active) span {
+      & .steps__step__indicator {
         color: var(--black);
         background-color: var(--gray-md);
       }
@@ -115,13 +129,15 @@ body {
 
 // controls
 .controls {
-  margin-right: var(--spacing-lg);
+  //margin-right: var(--spacing-md);
+  // we set a min-width to prevent the layout from jumping around when titles change or the button is added
+  min-width: 40rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  .title {
-    font-size: 1.3em;
+  .step-tooltip {
+    //font-size: 1.3em;
     font-weight: bold;
     margin: 0;
   }

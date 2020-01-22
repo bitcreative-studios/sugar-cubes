@@ -12,21 +12,30 @@
   <body>
     <div class="steps__widget">
       <div class="steps">
-        <div class="steps__step active" id="step-1" data-step="title">
-          <span class="steps__step__indicator ">1</span>
-          <p class="steps__step__text text">Choose title</p>
+        <div id="step-1" class="steps__step active" data-step="title">
+          <input type="checkbox" name="title" id="step-title" />
+          <label for="step-title">
+            <span class="steps__step__indicator">1</span>
+            <span class="steps__step__text text">Choose title</span>
+          </label>
         </div>
         <div id="step-2" class="steps__step" data-step="description">
-          <span class="steps__step__indicator">2</span>
-          <p class="steps__step__text text">Choose description</p>
+          <input type="checkbox" name="description" id="step-description" />
+          <label for="step-description"
+            ><span class="steps__step__indicator">2</span>
+            <span class="steps__step__text text">Choose description</span>
+          </label>
         </div>
-        <div id="step-3" class="steps__step">
-          <span class="steps__step__indicator">3</span>
-          <p class="steps__step__text text">Confirm data</p>
+        <div id="step-3" class="steps__step" data-step="confirm">
+          <input type="checkbox" name="confirm" id="step-confirm" />
+          <label for="step-confirm"
+            ><span class="steps__step__indicator">3</span>
+            <span class="steps__step__text text">Confirm data</span>
+          </label>
         </div>
       </div>
       <div class="controls">
-        <h1 class="title text">Choose description content</h1>
+        <h1 class="step-tooltip text">Choose title content</h1>
         <div class="btn__group">
           <button class="btn text" type="submit">Submit title</button>
         </div>
