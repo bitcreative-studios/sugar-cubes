@@ -1,0 +1,144 @@
+@import "normalize";
+:root {
+  --black: #1a1e1d;
+  --gray-lt: #f1f1f1;
+  --gray-md: #dedede;
+  --gray: #999999;
+  --active-state: #ff0844;
+  --incomplete-state: var(--gray-lt);
+  --disabled-text: var(--gray);
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 8rem;
+  --corners-xs: 2px;
+  --corners-sm: 4px;
+}
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-content: center;
+  background: var(--black);
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+// typography
+.text {
+  color: var(--black);
+  font-family: Roboto, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.btn {
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  background-color: var(--gray-lt);
+  border: none;
+  border-radius: var(--corners-xs);
+  transition: background-color 100ms ease-in-out;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: var(--gray-md);
+  }
+  & + & {
+    margin-left: 0.5rem;
+  }
+}
+
+.steps__widget {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: var(--corners-sm);
+  padding: calc(var(--spacing-md) + 1%) var(--spacing-md);
+}
+label {
+  cursor: pointer;
+}
+
+// steps
+.steps {
+  margin-right: var(--spacing-lg);
+  input[type="checkbox"] {
+    display: none;
+  }
+  &__step {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    &__indicator {
+      display: inline-grid;
+      place-content: center;
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      margin-right: var(--spacing-sm);
+      background: var(--incomplete-state);
+      color: var(--disabled-text);
+      font-weight: bold;
+      transition: all 100ms ease-in-out;
+    }
+    &__text {
+      margin: 0;
+      color: var(--disabled-text);
+      transition: color 100ms ease-in-out;
+    }
+    &.active,
+    &.completed {
+      .steps__step__indicator {
+        background: var(--active-state);
+        color: #fff;
+      }
+      .text {
+        color: var(--black);
+      }
+      &:hover {
+        .steps__step__indicator {
+          background: var(--active-state);
+          color: #fff;
+        }
+      }
+    }
+    &:hover {
+      .text {
+        color: var(--black);
+      }
+      & .steps__step__indicator {
+        color: var(--black);
+        background-color: var(--gray-md);
+      }
+    }
+  }
+}
+
+// controls
+.controls {
+  //margin-right: var(--spacing-md);
+  // we set a min-width to prevent the layout from jumping around when titles change or the button is added
+  min-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .step-tooltip {
+    //font-size: 1.3em;
+    font-weight: bold;
+    margin: 0;
+  }
+}
