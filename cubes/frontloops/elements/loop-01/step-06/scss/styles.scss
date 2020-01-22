@@ -1,0 +1,45 @@
+@import "normalize";
+@import url("https://use.typekit.net/gtc1mvz.css");
+
+:root {
+  --background: #1a1e1d;
+  --primary: #ff0844;
+  --corner: 4px;
+}
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-size: 1.6rem;
+  background: var(--primary);
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  height: 60rem;
+  width: 60rem;
+  background: var(--primary);
+  perspective: 200px;
+  
+  &__body {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px #934549;
+    background: #fff;
+    border-radius: var(--corner);
+    //transform: rotateY(1deg);
+    transform-style: preserve-3d;
+    transition: all 0.3s ease-out;
+  }
+  //&:hover &__body{
+  //  transform: rotateY(-4deg);
+  //}
+}
