@@ -68,7 +68,7 @@ echo -e "creating \e[95ma new commit on branch $current_project\e[0m"
 git add . && git commit -m "initial commit created by script"
 
 echo -e "\e[95Opening files in Webstorm\e[0m"
-pycharm "$current_project_root/index.html" "$current_project_root/scss/styles.scss"
+#pycharm "$current_project_root/index.html" "$current_project_root/scss/styles.scss"
 #echo "Starting development on \033[0;32m$current_project\033[0m"
 yarn run server
 exit 0
