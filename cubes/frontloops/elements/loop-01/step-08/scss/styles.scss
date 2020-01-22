@@ -1,15 +1,79 @@
 @import "normalize";
 @import url("https://use.typekit.net/gtc1mvz.css");
 
+$bit-black: #0c0c0c;
+$bit-pink: #ff0844;
+$gray: #efeef0;
+$dark-gray: #999999;
+
 html {
- font-size: 62.5%;
+  font-size: 62.5%;
 }
 
-html, body {
-  height: 100%;
+html {
   width: 100%;
+  height: 100%;
 }
 
 body {
+  display: grid;
+  justify-content: center;
+  font-family: "alverata", cursive;
   font-size: 1.6rem;
+  background: $bit-pink;
+  color: white;
+}
+
+.container {
+  margin-top: 10rem;
+  padding: 5rem;
+  background: #fff;
+  border-radius: 0.4rem;
+}
+
+.btn {
+  border: none;
+  padding: 1.2rem 2rem;
+  color: $dark-gray;
+  background: $gray;
+  font-weight: bold;
+  border-radius: 0.2rem;
+
+  & + & {
+    margin-left: 1rem;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.off-canvas-menu {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20vw;
+  height: 100vh;
+  background: $bit-black;
+  transform: translateX(-100%);
+  transition: all 200ms ease-in;
+
+  .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &.hidden {
+  }
+
+  &.show {
+    transform: translateX(0);
+  }
+}
+
+.menu__message {
+  font-size: 1.3em;
 }
