@@ -1,15 +1,39 @@
 @import "normalize";
 @import url("https://use.typekit.net/gtc1mvz.css");
 
-html {
- font-size: 62.5%;
-}
+$section-color: #efefef;
+$background: #f9f9f9;
+$card-color: #ffffff;
 
-html, body {
-  height: 100%;
-  width: 100%;
+html {
+  font-size: 62.5%;
 }
 
 body {
+  display: grid;
+  place-content: center;
+  background: $background;
   font-size: 1.6rem;
+}
+
+.sticky-content {
+  position: absolute;
+  height: 20rem;
+  margin-left: calc((32.5vw - 25rem) - 5rem);
+  //margin-left: 20rem;
+  margin-top: 14rem;
+  width: 25rem;
+  background: $card-color;
+  box-shadow: 2px 3px 3px darken($section-color, 5);
+  border: 1px solid darken($section-color, 4);
+  border-radius: 0.3rem;
+}
+
+.main-content {
+  background: $section-color;
+  height: calc(100vh * 3);
+  width: 35vw;
+  min-width: 50rem;
+  margin-top: 2rem;
+  margin-bottom: 10rem;
 }
