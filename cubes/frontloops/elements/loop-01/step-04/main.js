@@ -19,7 +19,6 @@ backButton.classList.add("btn", "text")
 let ACTIVE_STEP
 let FORM_COMPLETED = false
 
-
 // collection of available steps
 const steps = Array.from(document.querySelectorAll(".steps__step")).reduce(
   // eslint-disable-next-line no-shadow
@@ -40,9 +39,6 @@ const idToName = Object.keys(steps).reduce((map, name) => {
   map[steps[name].id] = name
   return map
 }, {})
-
-
-
 
 // push the initial step into the completed array
 function initControls() {
@@ -77,7 +73,7 @@ function updateUI(name) {
 }
 
 function handleStepChange(name, goBack = false) {
-  if(FORM_COMPLETED) return
+  if (FORM_COMPLETED) return
   //  determine if UI should be updated
   //  get step number
 
@@ -107,9 +103,9 @@ function handleStepChange(name, goBack = false) {
     ACTIVE_STEP = name
     updateUI(name)
   } else if (goBack) {
-    if(name === "title") return
+    if (name === "title") return
     steps[name].classList.remove("active")
-    ACTIVE_STEP = completed[completed.length -1]
+    ACTIVE_STEP = completed[completed.length - 1]
     handleStepChange(ACTIVE_STEP)
   }
 }
@@ -129,12 +125,12 @@ function handleSubmit() {
 }
 function handleBackClick() {
   const active = document.querySelector(".active")
-  const {step} = active.dataset
-  handleStepChange(step,true)
+  const { step } = active.dataset
+  handleStepChange(step, true)
 }
 
 submitButton.addEventListener("click", handleSubmit)
-backButton.addEventListener("click",handleBackClick)
+backButton.addEventListener("click", handleBackClick)
 const checkboxes = Array.from(document.querySelectorAll("[type='checkbox']"))
 checkboxes.forEach(checkbox =>
   checkbox.addEventListener("change", e => handleStepChange(e.target.name))
