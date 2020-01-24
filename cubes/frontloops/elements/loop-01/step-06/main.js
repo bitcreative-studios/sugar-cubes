@@ -49,9 +49,8 @@ output.x.range = output.x.end - output.x.start
 output.y.range = output.y.end - output.y.start
 
 const handleMouseMove = e => {
-  if(!STARTED) {
+  if (!STARTED) {
     card.style.boxShadow = `box-shadow: 0 2px 16px 3px #934549`
-    ;
   }
 
   const { clientX, clientY } = e
@@ -68,15 +67,14 @@ const handleMouseMove = e => {
 
   const xDecimal =
     (output.x.start + input.mouseX.percentage * output.x.range) / 100
-  output.x.current = (1 + Math.abs(xDecimal)) *
-    Math.sign(xDecimal)
+  output.x.current = (1 + Math.abs(xDecimal)) * Math.sign(xDecimal)
 
   const yDecimal =
     (output.y.start + input.mouseY.percentage * output.y.range) / 100
-  output.y.current = (1 + Math.abs(yDecimal)) *
-    Math.sign(yDecimal)
+  output.y.current = (1 + Math.abs(yDecimal)) * Math.sign(yDecimal)
 
-  card.style.transform = `rotate3d(${output.x.current}, ${output.y.current},0, 3deg)`
+  card.style.transform = `rotate3d(${-output.y.current}, ${-output.x
+    .current},0, 1deg)`
 }
 
 const handleResize = () => {
@@ -86,5 +84,11 @@ const handleResize = () => {
   input.mouseX.range = input.mouseX.end - input.mouseX.start
 }
 
-window.addEventListener("mousemove", handleMouseMove)
-window.addEventListener("resize", handleResize)
+card.addEventListener("click", () => {
+  if (!STARTED) {
+    card.style.boxShadow = "5px 10px 12px #141429"
+    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("resize", handleResize)
+    STARTED = true
+  }
+})
