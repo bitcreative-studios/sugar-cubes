@@ -1,5 +1,10 @@
-@import "normalize";
 @import url("https://fonts.googleapis.com/css?family=Archivo&display=swap");
+@import "normalize";
+
+$nike-red: #ea625c;
+$soft-black: #333333;
+$light-gray: #bfc0c0;
+$medium-gray: #999999;
 
 html {
   font-size: 62.5%;
@@ -14,4 +19,61 @@ body {
 body {
   font-size: 1.6rem;
   font-family: "Archivo", sans-serif;
+}
+
+.app-bar {
+  padding: 2rem 0;
+  background: $light-gray;
+
+  &__menu {
+    display: flex;
+    grid-column: span 6;
+    grid-column-end: -1;
+    .main-menu {
+      &__items {
+        display: flex;
+        list-style: none;
+
+        &__item {
+          padding: 0 1rem;
+          &__link {
+            text-decoration: none;
+            text-transform: capitalize;
+            //font-weight: 500;
+
+            &:visited,
+            &:link {
+              color: $medium-gray;
+            }
+          }
+        }
+      }
+    }
+
+    //  search input
+    &__search {
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid lighten($medium-gray, 9);
+      color: $medium-gray;
+
+      &:focus {
+        outline: none;
+        //width: 2rem;
+      }
+      &::placeholder {
+        color: $light-gray;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.container {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1.3rem;
+  background: #f7fafc;
+  max-width: 96rem;
 }
