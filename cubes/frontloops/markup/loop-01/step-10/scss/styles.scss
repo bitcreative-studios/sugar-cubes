@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Archivo&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Archivo:400,500,700&display=swap");
 @import "normalize";
 
 $nike-red: #ea625c;
@@ -10,15 +10,24 @@ html {
   font-size: 62.5%;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
   font-size: 1.6rem;
   font-family: "Archivo", sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 96rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1.3rem;
+  background: #f7fafc;
+}
+
+.section {
+  padding: 2rem 0;
 }
 
 .app-bar {
@@ -54,8 +63,9 @@ body {
     &__search {
       border: none;
       background: transparent;
-      border-bottom: 2px solid lighten($medium-gray, 9);
+      border-bottom: 1px solid lighten($medium-gray, 9);
       color: $medium-gray;
+      font-size: 0.9em;
 
       &:focus {
         outline: none;
@@ -69,11 +79,92 @@ body {
   }
 }
 
-.container {
-  display: grid;
-  margin: 0 auto;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 1.3rem;
-  background: #f7fafc;
-  max-width: 96rem;
+.callout {
+  grid-column: span 6;
+
+  &__title {
+    font-size: 2.7em;
+    &--black {
+      color: $soft-black;
+    }
+    &--white {
+      color: #fff;
+    }
+  }
+  &__text {
+    max-width: calc(90%);
+    border-left: 2px solid;
+    padding-left: 2rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+
+    &--gray {
+      color: $medium-gray;
+    }
+
+    &--white {
+      color: #fff;
+    }
+
+    &--black {
+      color: $soft-black;
+    }
+  }
+}
+
+.features {
+  color: $soft-black;
+  &__feature {
+    grid-column: span 4;
+
+    &__heading {
+      font-size: 0.9em;
+      text-transform: uppercase;
+    }
+
+    &__text {
+      line-height: 1.7;
+      letter-spacing: 0.4px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      max-width: calc(94%);
+    }
+
+    &__cta {
+      &--dots {
+        position: relative;
+        background: $light-gray;
+        height: 0.5rem;
+        width: 0.5rem;
+
+        &:after,
+        &:before {
+          content: "";
+          position: absolute;
+          background: $light-gray;
+          height: 0.5rem;
+          width: 0.5rem;
+        }
+
+        &:before {
+          left: 1rem;
+        }
+        &:after {
+          left: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 1.2rem;
+  border: none;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: $nike-red;
+  color: #fff;
 }
