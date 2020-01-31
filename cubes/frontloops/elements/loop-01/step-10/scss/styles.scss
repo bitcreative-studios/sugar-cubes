@@ -1,10 +1,21 @@
 @import "normalize";
 @import url("https://use.typekit.net/gtc1mvz.css");
 
+$background: #2b2f39;
+
 html {
- font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
   font-size: 1.6rem;
+  background: $background;
+}
+
+.box {
+  cursor: crosshair;
+  height: 30rem;
+  width: 30rem;
+  background: #fff;
+  border-radius: 3px;
 }
