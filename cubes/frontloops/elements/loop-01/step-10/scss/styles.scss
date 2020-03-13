@@ -18,4 +18,14 @@ body {
   width: 30rem;
   background: #fff;
   border-radius: 3px;
+  transform-origin: center;
+
+  &:active {
+    background: darken(#fff, 8);
+  }
+}
+
+.dropzone {
+  height: 100vh;
+  width: 100vw;
 }
